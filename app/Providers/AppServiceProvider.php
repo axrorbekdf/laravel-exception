@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app
+        ->when(\App\Http\Controllers\Test1Controller::class)
+        ->needs('$timezone')
+        ->give('American/New_york');
     }
 
     /**
