@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DvrController;
 use App\Http\Controllers\Test1Controller;
 use App\Http\Controllers\Test2Controller;
 use App\Http\Controllers\TestController;
@@ -23,3 +24,7 @@ Route::get('/', function () {
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/test/lesson1', [Test1Controller::class, '__invoke']);
 Route::get('/test/lesson2', [Test2Controller::class, '__invoke']);
+
+
+Route::get('/test/dvr1', [DvrController::class, 'play']);
+Route::get('/test/dvr2', [DvrController::class, 'pause']);

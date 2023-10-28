@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
         ->when(\App\Http\Controllers\Test2Controller::class)
         ->needs('$timezone')
         ->give('American/Chicago');
+
+        
     }
 
     /**
