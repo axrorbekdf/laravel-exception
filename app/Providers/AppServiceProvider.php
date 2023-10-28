@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
         ->needs('$timezone')
         ->give('American/Chicago');
 
-        
+        $this->app->bind(\App\Contracts\Dvr::class, \App\Implementations\Haydonwell::class);
+        // $this->app->bind(\App\Contracts\Dvr::class, \App\Implementations\Haydon::class);
     }
 
     /**

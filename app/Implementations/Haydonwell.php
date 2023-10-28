@@ -5,7 +5,7 @@ namespace App\Implementations;
 use App\Contracts\Dvr;
 use App\Services\HaydonwellApi;
 
-class Haydon implements Dvr{
+class Haydonwell implements Dvr{
     
     public function __construct(protected HaydonwellApi $api){}
 

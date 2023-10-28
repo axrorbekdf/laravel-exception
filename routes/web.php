@@ -26,5 +26,5 @@ Route::get('/test/lesson1', [Test1Controller::class, '__invoke']);
 Route::get('/test/lesson2', [Test2Controller::class, '__invoke']);
 
 
-Route::get('/test/dvr1', [DvrController::class, 'play']);
-Route::get('/test/dvr2', [DvrController::class, 'pause']);
+Route::get('/test/play', [DvrController::class, 'play']);
+Route::get('/test/pause', [DvrController::class, 'pause']);
