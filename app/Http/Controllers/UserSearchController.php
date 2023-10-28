@@ -2,29 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ByName;
+use App\Filters\ByRoleId;
+use App\Filters\ByStatus;
 use App\Models\User;
-use Closure;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
-
-
 use Illuminate\Support\Facades\Pipeline;
 
 class UserSearchController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         return Pipeline::send(User::query())
         ->through([
-            function(Builder $builder, Closure $next){
-                return $next($builder);
-            },
-            function(Builder $builder, Closure $next){
-                return $next($builder);
-            }
+            ByName::class,
+            ByRoleId::class,
+            ByStatus::class,
         ])
         ->thenReturn()
         ->paginate();
-        // ->then(fn(User $user)=> $user);
     }
 }
