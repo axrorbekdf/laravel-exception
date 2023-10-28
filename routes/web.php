@@ -4,6 +4,7 @@ use App\Http\Controllers\DvrController;
 use App\Http\Controllers\Test1Controller;
 use App\Http\Controllers\Test2Controller;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserSearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,4 @@ Route::get('/test/lesson2', [Test2Controller::class, '__invoke']);
 
 Route::get('/test/play', [DvrController::class, 'play']);
 Route::get('/test/pause', [DvrController::class, 'pause']);
+Route::get('/user/search', [UserSearchController::class, '__invoke']);
