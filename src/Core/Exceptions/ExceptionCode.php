@@ -38,10 +38,16 @@ enum ExceptionCode: int{
         $translation = __($key);
 
         if($key == $translation){
-            return "Somithing went wrong";
+            return "No additional description provider";
         }
 
         return $translation;
+    }
+
+    public function getLink() : string {
+        return route('docs.exception',[
+            'code' => $this->value
+        ]);
     }
     
 }

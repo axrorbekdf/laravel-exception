@@ -38,8 +38,15 @@ class Handler extends ExceptionHandler
         // });
 
         $this->renderable(function(InternalException $e,  Request $request){
+
+            $code = $e->getIntenalCode();
+
             return response()->json([
-                "message" => $e->getMessage()
+                "error" => 'error',
+                "code" => $code->value,
+                "message" => $code->getMessage(),
+                "description" => $code->getDescription(),
+                "link" => $code->getLink()
             ], $e->getCode());
         });
 

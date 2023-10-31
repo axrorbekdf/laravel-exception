@@ -30,3 +30,10 @@ Route::get('/test/lesson2', [Test2Controller::class, '__invoke']);
 Route::get('/test/play', [DvrController::class, 'play']);
 Route::get('/test/pause', [DvrController::class, 'pause']);
 Route::get('/user/search', [UserSearchController::class, '__invoke']);
+
+
+Route::get('/doc/exceptions/{code}', function($code){
+    
+    return $code;
+
+})->name('docs.exceptions');
