@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Core\Exceptions\InternalException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Request;
 use Throwable;
@@ -30,7 +31,13 @@ class Handler extends ExceptionHandler
         //     // ]);
         // });
         
-        $this->renderable(function(CustomException $e,  Request $request){
+        // $this->renderable(function(CustomException $e,  Request $request){
+        //     return response()->json([
+        //         "message" => $e->getMessage()
+        //     ], $e->getCode());
+        // });
+
+        $this->renderable(function(InternalException $e,  Request $request){
             return response()->json([
                 "message" => $e->getMessage()
             ], $e->getCode());
