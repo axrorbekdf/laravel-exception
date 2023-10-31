@@ -20,4 +20,28 @@ enum ExceptionCode: int{
         };
     }
     
+    public function getMessage(): string
+    {
+        $key = "exception.{$this->value}.message";
+        $translation = __($key);
+
+        if($key == $translation){
+            return "Somithing went wrong";
+        }
+
+        return $translation;
+    }
+
+    public function getDescription(): string
+    {
+        $key = "exception.{$this->value}.description";
+        $translation = __($key);
+
+        if($key == $translation){
+            return "Somithing went wrong";
+        }
+
+        return $translation;
+    }
+    
 }
