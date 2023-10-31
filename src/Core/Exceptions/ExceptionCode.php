@@ -7,6 +7,7 @@ enum ExceptionCode: int{
     case NoSubscription = 10_000;
     case LimitExceede = 10_001;
 
+    case UserAlreadyExists = 11_000;
     case NoAccess = 90_000;
 
     public function getStatusCode(): int
@@ -45,7 +46,7 @@ enum ExceptionCode: int{
     }
 
     public function getLink() : string {
-        return route('docs.exception',[
+        return route('docs.exceptions',[
             'code' => $this->value
         ]);
     }

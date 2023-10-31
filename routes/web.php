@@ -6,6 +6,7 @@ use App\Http\Controllers\Test2Controller;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserSearchController;
 use Illuminate\Support\Facades\Route;
+use Modules\User\Exceptions\UserException;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::get('/doc/exceptions/{code}', function($code){
     return $code;
 
 })->name('docs.exceptions');
+
+Route::get('/test', function(){
+    throw UserException::userAlreadyExists();
+});

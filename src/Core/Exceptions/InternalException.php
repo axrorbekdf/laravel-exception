@@ -14,7 +14,8 @@ class InternalException extends Exception{
         ?string $message = null,
         ?string $description = null,
         ?int $statusCode = null
-    ){
+    ): static 
+    {
         $exception = new static(
             message: $message ?? $code->getMessage(),
             code: $statusCode ?? $code->getStatusCode()
