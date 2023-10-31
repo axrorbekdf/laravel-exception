@@ -14,4 +14,12 @@ class UserException extends InternalException{
             ExceptionCode::UserAlreadyExists,
         );
     }
+
+    public static function test(): self
+    {
+        // return new self("Something bad happen", 403);
+        return static::new(
+            ExceptionCode::LimitExceede,
+        );
+    }
 }
